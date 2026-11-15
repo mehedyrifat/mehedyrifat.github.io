@@ -106,20 +106,39 @@
             width: 100%;
         }
 
-        .nav-icons {
+        .nav-actions {
             display: flex;
-            gap: 15px;
             align-items: center;
+            gap: 15px;
         }
 
-        .nav-icons a {
+        .nav-actions a {
             color: var(--text-main);
-            font-size: 1.1rem;
             transition: color 0.3s;
         }
 
-        .nav-icons a:hover {
+        .nav-actions a:hover {
             color: var(--primary-accent);
+        }
+
+        .btn-cv {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--text-main);
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-cv:hover {
+            background: var(--text-main);
+            color: var(--bg-dark);
         }
 
         .btn-hire {
@@ -188,20 +207,32 @@
             display: block;
         }
 
+        /* Hero Text (Clean & Simple) */
         .hero-text h1 {
             font-family: var(--font-heading);
-            font-size: 4rem;
+            font-size: 4.5rem;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 600;
+            color: #fff;
         }
 
+        /* Sub-headline (Simple) */
+        .hero-text h2 {
+            font-size: 1.8rem;
+            color: #e2e2e2;
+            font-weight: 400;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        /* Paragraph */
         .hero-text p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
             margin-bottom: 40px;
             max-width: 500px;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .hero-actions {
@@ -228,28 +259,25 @@
             box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
         }
 
-        .hero-social {
-            display: flex;
-            gap: 15px;
-        }
-
-        .hero-social a {
-            color: #fff;
-            font-size: 1.2rem;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            width: 45px;
-            height: 45px;
+        /* Email Button */
+        .btn-email {
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 50%;
+            gap: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 15px 25px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass-bg);
             transition: all 0.3s;
         }
 
-        .hero-social a:hover {
-            background: var(--primary-accent);
-            border-color: var(--primary-accent);
+        .btn-email:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-main);
             transform: translateY(-3px);
         }
 
@@ -306,8 +334,7 @@
             border: 1px solid rgba(108, 99, 255, 0.2);
         }
 
-        /* ========================================= */
-        /* ========================================= */
+        /* Certificates */
         .grid-certs { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -432,8 +459,9 @@
         @media (max-width: 992px) {
             .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
             .hero-text h1 { font-size: 3rem; }
+            .hero-text h2 { font-size: 1.4rem; }
             .hero-text p { margin: 0 auto 30px; }
-            .hero-actions { justify-content: center; }
+            .hero-actions { justify-content: center; flex-wrap: wrap; }
             .nav-links { display: none; }
             .image-box { width: 300px; height: 380px; }
             .grid-2 { grid-template-columns: 1fr; }
@@ -442,7 +470,7 @@
 </head>
 <body>
 
-    <!-- NAVBAR (Skills added) -->
+    <!-- NAVBAR -->
     <nav>
         <div class="container">
             <a href="#home" class="logo">Rifat.</a>
@@ -456,14 +484,18 @@
                 <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="nav-icons">
+            <div class="nav-actions">
                 <a href="https://linkedin.com/in/mehedyrifat" target="_blank" title="LinkedIn">
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
                 <a href="https://github.com/mehidyrifat" target="_blank" title="GitHub">
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
-                <a href="mailto:mehidyrifat794@gmail.com" class="btn-hire" style="margin-left: 10px;">Hire Me</a>
+                <a href="cv.pdf" target="_blank" class="btn-cv">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    CV
+                </a>
+                <a href="mailto:mehidyrifat794@gmail.com" class="btn-hire">Hire Me</a>
             </div>
         </div>
     </nav>
@@ -477,14 +509,21 @@
                 </div>
             </div>
             <div class="hero-text">
-                <h1>Building Solutions That Users Truly Need.</h1>
-                <p>CSE Undergraduate | Researcher | Tech Enthusiast. Passionate about building practical software solutions and exploring the future of AI.</p>
+                
+                <h1>Mehedy Hasan Rifat</h1>
+                
+                <h2>Building Solutions That Users Truly Need.</h2>
+                
+                <p>CSE Undergraduate at Manarat International University, passionate about building practical software solutions and exploring the future of AI.</p>
+                
                 <div class="hero-actions">
                     <a href="#about" class="btn-primary">Explore Portfolio</a>
-                    <div class="hero-social">
-                        <a href="https://linkedin.com/in/mehedyrifat" target="_blank"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                        <a href="mailto:mehidyrifat794@gmail.com"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.866l5.6-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg></a>
-                    </div>
+                    
+                    <!-- Email Me Button -->
+                    <a href="mailto:mehidyrifat794@gmail.com" class="btn-email">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.866l5.6-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                        Email Me
+                    </a>
                 </div>
             </div>
         </div>
@@ -523,17 +562,13 @@
         </div>
     </section>
 
-    <!-- ========================================= -->
-    /* 🌟 SKILLS SECTION (NOW ADDED HERE) */
-    <!-- ========================================= -->
+    <!-- SKILLS SECTION -->
     <section id="skills">
         <div class="container">
             <h2 class="section-title">Tech <span>Skills</span></h2>
             
-            <!-- ৩টি বক্সের গ্রিড -->
             <div class="grid-3" style="margin-bottom: 30px;">
                 
-                <!-- Box 1: Programming & Tools -->
                 <div class="card">
                     <h3 class="card-title" style="color: var(--primary-accent); font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
@@ -549,7 +584,6 @@
                     </div>
                 </div>
 
-                <!-- Box 2: Web & Database -->
                 <div class="card">
                     <h3 class="card-title" style="color: var(--primary-accent); font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zM7 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zM7 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
@@ -562,7 +596,6 @@
                     </div>
                 </div>
 
-                <!-- Box 3: AI & Machine Learning -->
                 <div class="card">
                     <h3 class="card-title" style="color: var(--primary-accent); font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M21 11.18V9.72c0-.8-1.04-1.33-1.67-.86l-1.29.96a2.01 2.01 0 0 0-1.03-.94l-1.08-4.32c-.16-.64-.74-1.08-1.4-1.08h-3.06c-.66 0-1.24.44-1.4 1.08L9.99 8.88c-.4.16-.75.45-1.01.81L7.67 8.86c-.63-.47-1.67.06-1.67.86v1.46c0 .33.17.63.45.8l1.26.76c-.05.25-.08.51-.08.78s.03.53.08.78l-1.26.76c-.28.17-.45.47-.45.8v1.46c0 .8 1.04 1.33 1.67.86l1.31-.98c.26.36.61.65 1.01.81l1.08 4.32c.16.64.74 1.08 1.4 1.08h3.06c.66 0 1.24-.44 1.4-1.08l1.08-4.32c.4-.16.75-.45 1.01-.81l1.31.98c.63.47 1.67-.06 1.67-.86v-1.46c0-.33-.17-.63-.45-.8l-1.26-.76c.05-.25.08-.51.08-.78s-.03-.53-.08-.78l1.26-.76c.28-.17.45-.47.45-.8zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
@@ -579,7 +612,7 @@
 
             </div>
 
-            <!-- Languages Section (Shortcut at the bottom) -->
+            <!-- Languages Section -->
             <div class="card" style="padding: 25px; border-left: 4px solid var(--primary-accent); background: linear-gradient(90deg, rgba(108, 99, 255, 0.05) 0%, var(--glass-bg) 100%);">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
                     <svg width="22" height="22" fill="var(--primary-accent)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
