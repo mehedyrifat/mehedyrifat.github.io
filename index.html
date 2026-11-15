@@ -41,19 +41,21 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 30px;
         }
 
-        /* NAVBAR */
+        /* ========================================= */
+        /* 🌟 NAVBAR (Links shifted to the right) */
+        /* ========================================= */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 0;
+            padding: 15px 0;
             z-index: 1000;
-            background: rgba(9, 9, 11, 0.7);
+            background: rgba(9, 9, 11, 0.85);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--glass-border);
@@ -67,16 +69,20 @@
 
         .logo {
             font-family: var(--font-heading);
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--text-main);
             text-decoration: none;
+            white-space: nowrap;
         }
 
+        /* মেনু লিংকগুলোকে ডানদিকে সরানোর জন্য margin-left: auto; */
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             list-style: none;
+            margin-left: auto; 
+            margin-right: 30px; 
         }
 
         .nav-links li a {
@@ -107,38 +113,58 @@
             width: 100%;
         }
 
+        /* Navbar Actions */
         .nav-actions {
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        .nav-actions a {
-            color: var(--text-main);
-            transition: color 0.3s;
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .nav-actions a:hover {
+        .social-icons a {
+            color: var(--text-main);
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icons a:hover {
             color: var(--primary-accent);
         }
 
-        /* Navbar Hire Me Button */
         .btn-hire-nav {
             background-color: var(--primary-accent);
             color: #fff !important;
-            padding: 10px 25px;
+            padding: 10px 22px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.3s;
             box-shadow: 0 0 15px rgba(108, 99, 255, 0.4);
+            white-space: nowrap;
         }
 
         .btn-hire-nav:hover {
             background-color: var(--primary-hover);
             transform: translateY(-2px);
             box-shadow: 0 0 25px rgba(108, 99, 255, 0.6);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            color: var(--text-main);
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
 
         /* HERO SECTION */
@@ -371,7 +397,7 @@
         }
         .clickable-card:hover::after { opacity: 1; }
 
-        /* --- NEW COMBINED CONTACT & FORM STYLES --- */
+        /* COMBINED CONTACT & FORM STYLES */
         .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -420,7 +446,6 @@
             height: 45px;
         }
 
-        /* Form Side */
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -540,21 +565,56 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-            .hero-text h1 { font-size: 3rem; }
+        /* ========================================= */
+        /* 🌟 RESPONSIVE DESIGN (MOBILE FIX) */
+        /* ========================================= */
+        @media (max-width: 1050px) {
+            .nav-links {
+                display: none; 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(9, 9, 11, 0.95);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                border-bottom: 1px solid var(--glass-border);
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            .nav-links.active {
+                display: flex; 
+            }
+
+            .mobile-menu-btn {
+                display: block; 
+            }
+
+            .social-icons {
+                display: none; 
+            }
+
+            .hero-grid { 
+                grid-template-columns: 1fr; 
+                text-align: center; 
+                gap: 40px; 
+            }
+            .hero-text h1 { font-size: 3.5rem; }
             .hero-text h2 { font-size: 1.4rem; }
             .hero-text p { margin: 0 auto 30px; }
             .hero-actions { justify-content: center; }
-            .nav-links { display: none; }
             .image-box { width: 300px; height: 380px; }
             .grid-2 { grid-template-columns: 1fr; }
-            
-            .contact-wrapper { 
-                grid-template-columns: 1fr; 
-                padding: 30px;
-            }
+            .contact-wrapper { grid-template-columns: 1fr; padding: 30px; }
+        }
+
+        @media (max-width: 480px) {
+            .logo { font-size: 1.3rem; }
+            .btn-hire-nav { padding: 8px 15px; font-size: 0.8rem; }
+            .hero-text h1 { font-size: 2.8rem; }
         }
     </style>
 </head>
@@ -563,8 +623,9 @@
     <!-- NAVBAR -->
     <nav>
         <div class="container">
-            <a href="#home" class="logo">Rifat.</a>
-            <ul class="nav-links">
+            <a href="#home" class="logo">Mehedy Hasan Rifat</a>
+            
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
@@ -574,14 +635,20 @@
                 <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
             <div class="nav-actions">
-                <a href="https://linkedin.com/in/mehedyrifat" target="_blank" title="LinkedIn">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-                <a href="https://github.com/mehidyrifat" target="_blank" title="GitHub">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
+                <div class="social-icons">
+                    <a href="https://linkedin.com/in/mehedyrifat" target="_blank" title="LinkedIn">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://github.com/mehedyrifat" target="_blank" title="GitHub">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                </div>
+                
                 <a href="#contact" class="btn-hire-nav">Hire Me</a>
+                
+                <button class="mobile-menu-btn" onclick="toggleMenu()">&#9776;</button>
             </div>
         </div>
     </nav>
@@ -785,11 +852,29 @@
             <div class="grid-2">
                 <div class="card">
                     <h3 class="card-title">MIU Shuttle</h3>
-                    <p>University shuttle management and seat reservation system designed to improve student transportation services.</p>
+                    <p style="margin-bottom: 20px;">University shuttle management and seat reservation system designed to improve student transportation services.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="https://github.com/mehidyrifat" target="_blank" class="btn-secondary" style="padding: 8px 15px; font-size: 0.85rem;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            Code
+                        </a>
+                        <a href="#" target="_blank" class="btn-primary" style="padding: 8px 15px; font-size: 0.85rem;">
+                            Live Demo
+                        </a>
+                    </div>
                 </div>
                 <div class="card">
                     <h3 class="card-title">MIU Web Information System</h3>
-                    <p>Web-based student information management system designed to handle student registration, academic information, and profiles.</p>
+                    <p style="margin-bottom: 20px;">Web-based student information management system designed to handle student registration, academic information, and profiles.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="https://github.com/mehidyrifat" target="_blank" class="btn-secondary" style="padding: 8px 15px; font-size: 0.85rem;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            Code
+                        </a>
+                        <a href="#" target="_blank" class="btn-primary" style="padding: 8px 15px; font-size: 0.85rem;">
+                            Live Demo
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -829,15 +914,12 @@
         </div>
     </section>
 
-    <!-- ========================================= -->
-    <!-- CONTACT SECTION (COMBINED IN ONE BOX) -->
-    <!-- ========================================= -->
+    <!-- CONTACT SECTION -->
     <section id="contact">
         <div class="container">
             <h2 class="section-title">Get In <span>Touch</span></h2>
             
             <div class="contact-wrapper">
-                <!-- Left Side: Details -->
                 <div class="contact-info-side">
                     <h3>Let's Connect</h3>
                     <p>I'm currently looking for new opportunities and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
@@ -858,7 +940,6 @@
                     </div>
                 </div>
 
-                <!-- Right Side: Form -->
                 <form action="https://formspree.io/f/xdegenee" method="POST" class="contact-form">
                     <div class="form-group">
                         <label for="name">Your Name</label>
@@ -1056,6 +1137,18 @@
 
     <!-- JAVASCRIPT -->
     <script>
+        function toggleMenu() {
+            var navLinks = document.getElementById("nav-links");
+            navLinks.classList.toggle("active");
+        }
+
+        var navItems = document.querySelectorAll('.nav-links li a');
+        navItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                document.getElementById("nav-links").classList.remove("active");
+            });
+        });
+
         function showModal(modalId) {
             var modal = document.getElementById(modalId);
             if (modal) {
