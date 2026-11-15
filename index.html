@@ -107,7 +107,6 @@
             width: 100%;
         }
 
-        /* Navbar Actions */
         .nav-actions {
             display: flex;
             align-items: center;
@@ -163,7 +162,6 @@
             position: relative;
         }
 
-        /* 🖼️ চিত্র বক্স (Image Box) */
         .image-box {
             width: 350px;
             height: 420px;
@@ -190,7 +188,6 @@
             display: block;
         }
 
-        /* Hero Text */
         .hero-text h1 {
             font-family: var(--font-heading);
             font-size: 4.5rem;
@@ -216,7 +213,6 @@
             line-height: 1.7;
         }
 
-        /* Hero Actions (Buttons in a row) */
         .hero-actions {
             display: flex;
             align-items: center;
@@ -224,7 +220,6 @@
             flex-wrap: wrap;
         }
 
-        /* Primary Button (Explore Portfolio) */
         .btn-primary {
             background-color: var(--primary-accent);
             color: #fff;
@@ -244,7 +239,6 @@
             box-shadow: 0 8px 25px rgba(108, 99, 255, 0.5);
         }
 
-        /* Secondary Buttons (Email & CV) */
         .btn-secondary {
             display: flex;
             align-items: center;
@@ -365,7 +359,6 @@
             line-height: 1.5;
         }
 
-        /* Clickable Card Indicator */
         .clickable-card { cursor: pointer; position: relative; }
         .clickable-card::after {
             content: 'Click to view →';
@@ -377,6 +370,118 @@
             transition: opacity 0.3s;
         }
         .clickable-card:hover::after { opacity: 1; }
+
+        /* --- NEW COMBINED CONTACT & FORM STYLES --- */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info-side h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .contact-info-side p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            color: var(--text-main);
+            font-size: 1.05rem;
+        }
+
+        .contact-detail svg {
+            color: var(--primary-accent);
+            background: rgba(108, 99, 255, 0.1);
+            padding: 10px;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+        }
+
+        /* Form Side */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: var(--primary-accent);
+            background: rgba(108, 99, 255, 0.05);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-accent);
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+        }
 
         /* MODALS */
         .lightbox {
@@ -427,11 +532,6 @@
         .lightbox-img-wrap { width: 100%; border-radius: 12px; overflow: hidden; }
         .lightbox-img { width: 100%; display: block; }
 
-        /* Contact & Footer */
-        #contact { text-align: center; }
-        .contact-info { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
-        .contact-info p { color: var(--text-muted); font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
-        
         footer {
             text-align: center;
             padding: 30px;
@@ -450,6 +550,11 @@
             .nav-links { display: none; }
             .image-box { width: 300px; height: 380px; }
             .grid-2 { grid-template-columns: 1fr; }
+            
+            .contact-wrapper { 
+                grid-template-columns: 1fr; 
+                padding: 30px;
+            }
         }
     </style>
 </head>
@@ -476,8 +581,7 @@
                 <a href="https://github.com/mehidyrifat" target="_blank" title="GitHub">
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
-                <!-- Navbar Hire Me Button -->
-                <a href="mailto:mehidyrifat794@gmail.com" class="btn-hire-nav">Hire Me</a>
+                <a href="#contact" class="btn-hire-nav">Hire Me</a>
             </div>
         </div>
     </nav>
@@ -491,22 +595,16 @@
                 </div>
             </div>
             <div class="hero-text">
-                
                 <h1>Mehedy Hasan Rifat</h1>
-                
                 <h2>Building Solutions That Users Truly Need.</h2>
-                
                 <p>CSE Undergraduate at Manarat International University, passionate about building practical software solutions and exploring the future of AI.</p>
                 
-                <!-- Hero Buttons (Full Names) -->
                 <div class="hero-actions">
                     <a href="#about" class="btn-primary">Explore Portfolio</a>
-                    
-                    <a href="mailto:mehidyrifat794@gmail.com" class="btn-secondary">
+                    <a href="#contact" class="btn-secondary">
                         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.866l5.6-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                         Email Me
                     </a>
-
                     <a href="cv.pdf" target="_blank" class="btn-secondary">
                         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
                         Download CV
@@ -599,7 +697,6 @@
 
             </div>
 
-            <!-- Languages Section -->
             <div class="card" style="padding: 25px; border-left: 4px solid var(--primary-accent); background: linear-gradient(90deg, rgba(108, 99, 255, 0.05) 0%, var(--glass-bg) 100%);">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
                     <svg width="22" height="22" fill="var(--primary-accent)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
@@ -732,18 +829,53 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- ========================================= -->
+    <!-- CONTACT SECTION (COMBINED IN ONE BOX) -->
+    <!-- ========================================= -->
     <section id="contact">
         <div class="container">
             <h2 class="section-title">Get In <span>Touch</span></h2>
-            <div class="card" style="text-align: center; padding: 50px;">
-                <p style="margin-bottom: 30px; color: var(--text-muted);">I'm currently looking for new opportunities and collaborations. Feel free to reach out!</p>
-                <div class="contact-info">
-                    <p>📧 mehidyrifat794@gmail.com</p>
-                    <p>📞 +8801995876107</p>
-                    <p>📍 Mirpur-1, Dhaka</p>
+            
+            <div class="contact-wrapper">
+                <!-- Left Side: Details -->
+                <div class="contact-info-side">
+                    <h3>Let's Connect</h3>
+                    <p>I'm currently looking for new opportunities and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                    
+                    <div class="contact-detail">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.866l5.6-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                        <span>mehidyrifat794@gmail.com</span>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.4-1.2-.6-2.4-.6-3.6 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/></svg>
+                        <span>+8801995876107</span>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>Mirpur-1, Dhaka, Bangladesh</span>
+                    </div>
                 </div>
+
+                <!-- Right Side: Form -->
+                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="How can I help you?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
             </div>
+
         </div>
     </section>
 
