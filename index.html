@@ -631,12 +631,45 @@
             .contact-wrapper { grid-template-columns: 1fr; padding: 30px; }
         }
 
+        /* 🌟 মোবাইলের জন্য একদম নিখুঁত স্পেসিং */
         @media (max-width: 480px) {
-            .logo { font-size: 1.1rem; } /* মোবাইলে লোগো আরও ছোট */
-            .btn-hire-nav { padding: 8px 15px; font-size: 0.8rem; }
+            nav .container {
+                padding: 0 15px; /* দুই পাশের প্যাডিং কমানো হয়েছে */
+            }
+            
+            .logo { 
+                font-size: 1.1rem; /* নামের সাইজ ছোট করা হয়েছে */
+                margin-right: 5px;
+            }
+
+            .nav-actions {
+                gap: 10px; /* আইকনগুলোর মাঝে দূরত্ব */
+            }
+
+            #theme-toggle {
+                font-size: 1.1rem; 
+                margin: 0 5px; /* চাঁদ আইকন এবং নামের মাঝে দূরত্ব বাড়ানো হয়েছে */
+            }
+
+            .social-icons { 
+                gap: 6px; 
+            }
+            
+            .social-icons a svg { 
+                width: 16px; 
+                height: 16px; 
+            }
+
+            .btn-hire-nav { 
+                padding: 6px 12px; 
+                font-size: 0.75rem; 
+            }
+            
+            .mobile-menu-btn {
+                font-size: 1.5rem;
+            }
+
             .hero-text h1 { font-size: 2.8rem; }
-            .social-icons { gap: 8px; }
-            .social-icons a svg { width: 18px; height: 18px; }
         }
     </style>
 </head>
