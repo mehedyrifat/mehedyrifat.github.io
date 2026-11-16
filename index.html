@@ -334,7 +334,7 @@
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 30px;
+            padding: 25px;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
@@ -348,11 +348,45 @@
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-        .card-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 8px; color: var(--text-main); }
+        .card-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 5px; color: var(--text-main); }
         .card-subtitle { color: var(--primary-accent); font-size: 0.95rem; margin-bottom: 15px; font-weight: 500; }
-        .card-date { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px; display: block; }
+        .card-date { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px; display: block; }
         .card p, .card ul { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
         .card ul { margin-left: 20px; margin-top: 10px; }
+
+        /* 🌟 নতুন ইভেন্ট কার্ড ডিজাইন (ছোট ছবি + বড় লেখা) */
+        .event-card-layout {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .event-thumbnail {
+            flex-shrink: 0;
+            width: 90px; /* ৯০x৯০ করা হয়েছে */
+            height: 90px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+        }
+
+        .event-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .event-details {
+            flex: 1;
+        }
+
+        .event-details .card-title {
+            margin-bottom: 4px;
+        }
+
+        .event-details .card-date {
+            margin-bottom: 10px;
+        }
 
         /* Skills */
         .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -415,8 +449,8 @@
         .clickable-card::after {
             content: 'Click to view →';
             position: absolute;
-            bottom: 20px; right: 20px;
-            font-size: 0.8rem;
+            bottom: 15px; right: 20px;
+            font-size: 0.75rem;
             color: var(--primary-accent);
             opacity: 0;
             transition: opacity 0.3s;
@@ -634,21 +668,21 @@
         /* 🌟 মোবাইলের জন্য একদম নিখুঁত স্পেসিং */
         @media (max-width: 480px) {
             nav .container {
-                padding: 0 15px; /* দুই পাশের প্যাডিং কমানো হয়েছে */
+                padding: 0 15px; 
             }
             
             .logo { 
-                font-size: 1.1rem; /* নামের সাইজ ছোট করা হয়েছে */
+                font-size: 1.1rem; 
                 margin-right: 5px;
             }
 
             .nav-actions {
-                gap: 10px; /* আইকনগুলোর মাঝে দূরত্ব */
+                gap: 10px; 
             }
 
             #theme-toggle {
                 font-size: 1.1rem; 
-                margin: 0 5px; /* চাঁদ আইকন এবং নামের মাঝে দূরত্ব বাড়ানো হয়েছে */
+                margin: 0 5px; 
             }
 
             .social-icons { 
@@ -670,6 +704,16 @@
             }
 
             .hero-text h1 { font-size: 2.8rem; }
+            
+            .event-card-layout {
+                flex-direction: column; 
+                align-items: center;
+                text-align: center;
+            }
+            .event-thumbnail {
+                width: 100%;
+                height: 160px; 
+            }
         }
     </style>
 </head>
@@ -692,7 +736,6 @@
             </ul>
 
             <div class="nav-actions">
-                <!-- Theme Toggle Button -->
                 <button id="theme-toggle" title="Toggle Theme">🌙</button>
 
                 <div class="social-icons">
@@ -850,46 +893,119 @@
         <div class="container">
             <h2 class="section-title">Leadership & <span>Extracurriculars</span></h2>
             <div class="grid-2">
+                
+                <!-- Event 1 -->
                 <div class="card clickable-card" onclick="showModal('event1')">
-                    <h3 class="card-title">President, MIU CSE Club</h3>
-                    <span class="card-date">2025 - Present</span>
-                    <p>Leading club activities, organizing events, seminars, and student engagement initiatives.</p>
+                    <div class="event-card-layout">
+                        <div class="event-thumbnail">
+                            <img src="event1_1.jpeg" alt="President" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                        </div>
+                        <div class="event-details">
+                            <h3 class="card-title">President, MIU CSE Club</h3>
+                            <span class="card-date">2025 - Present</span>
+                            <p>Leading club activities, organizing events, seminars, and student engagement initiatives.</p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Event 2 -->
                 <div class="card clickable-card" onclick="showModal('event2')">
-                    <h3 class="card-title">Lead Organizer, AI Summit 2026</h3>
-                    <span class="card-date">2026</span>
-                    <p>Organized the summit on "The Future of Jobs and Education in the Age of AI" with 150+ participants.</p>
+                    <div class="event-card-layout">
+                        <div class="event-thumbnail">
+                            <img src="event2_1.jpeg" alt="AI Summit" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                        </div>
+                        <div class="event-details">
+                            <h3 class="card-title">Lead Organizer, AI Summit 2026</h3>
+                            <span class="card-date">2026</span>
+                            <p>Organized the summit on "The Future of Jobs and Education in the Age of AI" with 150+ participants.</p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Event 3 -->
                 <div class="card clickable-card" onclick="showModal('event3')">
-                    <h3 class="card-title">Lead, Silicon River Student Branch</h3>
-                    <span class="card-date">2025</span>
-                    <p>Leading the initiation and establishment of the branch at Manarat International University.</p>
+                    <div class="event-card-layout">
+                        <div class="event-thumbnail">
+                            <img src="event3.jpeg" alt="Silicon River" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                        </div>
+                        <div class="event-details">
+                            <h3 class="card-title">Lead, Silicon River Student Branch</h3>
+                            <span class="card-date">2025</span>
+                            <p>Leading the initiation and establishment of the branch at Manarat International University.</p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Event 4 -->
                 <div class="card clickable-card" onclick="showModal('event4')">
-                    <h3 class="card-title">Lead Organizer, ICT-Based Seminar</h3>
-                    <span class="card-date">2025</span>
-                    <p>Organized "Beyond the Classroom: AI, Careers & Digital Security" at MIU Auditorium.</p>
+                    <div class="event-card-layout">
+                        <div class="event-thumbnail">
+                            <img src="event4_1.jpeg" alt="ICT Seminar" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                        </div>
+                        <div class="event-details">
+                            <h3 class="card-title">Lead Organizer, ICT-Based Seminar</h3>
+                            <span class="card-date">2025</span>
+                            <p>Organized "Beyond the Classroom: AI, Careers & Digital Security" at MIU Auditorium.</p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Event 5 -->
                 <div class="card clickable-card" onclick="showModal('event5')">
-                    <h3 class="card-title">BEAR Patron (Campus Ambassador)</h3>
-                    <span class="card-date">2026</span>
-                    <p>Represented MIU at the National Semiconductor Symposium & BEAR Summit 2026.</p>
+                    <div class="event-card-layout">
+                        <div class="event-thumbnail">
+                            <img src="event5_1.jpeg" alt="BEAR Patron" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                        </div>
+                        <div class="event-details">
+                            <h3 class="card-title">BEAR Patron (Campus Ambassador)</h3>
+                            <span class="card-date">2026</span>
+                            <p>Represented MIU at the National Semiconductor Symposium & BEAR Summit 2026.</p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Event 6 -->
                 <div class="card clickable-card" onclick="showModal('event6')">
-                    <h3 class="card-title">Campus Ambassador, ICAI</h3>
-                    <span class="card-date">2025</span>
-                    <p>Promoted the International Congress on Artificial Intelligence among university students.</p>
+                    <div class="event-card-layout">
+                        <div class="event-thumbnail">
+                            <img src="event6_1.jpeg" alt="ICAI" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                        </div>
+                        <div class="event-details">
+                            <h3 class="card-title">Campus Ambassador, ICAI</h3>
+                            <span class="card-date">2025</span>
+                            <p>Promoted the International Congress on Artificial Intelligence among university students.</p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Event 7 -->
                 <div class="card clickable-card" onclick="showModal('event7')">
-                    <h3 class="card-title">Junior Project Judge & CTF Volunteer</h3>
-                    <span class="card-date">2025</span>
-                    <p>Evaluated junior-level projects, volunteered in the CTF segment, and supported event operations.</p>
+                    <div class="event-card-layout">
+                        <div class="event-thumbnail">
+                            <img src="event7_1.jpeg" alt="Judge" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                        </div>
+                        <div class="event-details">
+                            <h3 class="card-title">Junior Project Judge & CTF Volunteer</h3>
+                            <span class="card-date">2025</span>
+                            <p>Evaluated junior-level projects, volunteered in the CTF segment, and supported event operations.</p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Event 8 -->
                 <div class="card clickable-card" onclick="showModal('event8')">
-                    <h3 class="card-title">Delegate, DTCA Special Training</h3>
-                    <span class="card-date">April 2026</span>
-                    <p>Served as a university delegate at a specialized training on modernizing Greater Dhaka's transport system.</p>
+                    <div class="event-card-layout">
+                        <div class="event-thumbnail">
+                            <img src="event8_1.jpeg" alt="DTCA" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                        </div>
+                        <div class="event-details">
+                            <h3 class="card-title">Delegate, DTCA Special Training</h3>
+                            <span class="card-date">April 2026</span>
+                            <p>Served as a university delegate at a specialized training on modernizing Greater Dhaka's transport system.</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1131,20 +1247,20 @@
             <p class="lightbox-desc">
                 Organized the summit on "The Future of Jobs and Education in the Age of AI" at MIU Auditorium with 150+ participants. Coordinated 6 industry and academic speakers, sponsorship, branding, and event-day operations.
             </p>
-                <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <!-- ১ম ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event2_1.jpeg" alt="AI Summit Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+1'">
+                    <img src="event2_1.jpeg" alt="AI Summit Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+1'">
                 </div>
                 
                 <!-- ২য় ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event2_2.jpeg" alt="AI Summit Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+2'">
+                    <img src="event2_2.jpeg" alt="AI Summit Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+2'">
                 </div>
                 
                 <!-- ৩য় ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event2_3.jpeg" alt="AI Summit Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+3'">
+                    <img src="event2_3.jpeg" alt="AI Summit Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+3'">
                 </div>
             </div>
         </div>
@@ -1172,25 +1288,25 @@
             <p class="lightbox-desc">
                 Organized "Beyond the Classroom: AI, Careers & Digital Security" at MIU Auditorium with three speakers from academia, industry, and journalism. Managed event flow and audience engagement.
             </p>
-                <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <!-- ১ম ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event4_1.jpeg" alt="ICT Seminar Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+1'">
+                    <img src="event4_1.jpeg" alt="ICT Seminar Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+1'">
                 </div>
                 
                 <!-- ২য় ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event4_2.jpeg" alt="ICT Seminar Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+2'">
+                    <img src="event4_2.jpeg" alt="ICT Seminar Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+2'">
                 </div>
                 
                 <!-- ৩য় ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event4_3.jpeg" alt="ICT Seminar Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+3'">
+                    <img src="event4_3.jpeg" alt="ICT Seminar Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+3'">
                 </div>
 
                 <!-- ৪র্থ ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event4_4.jpeg" alt="ICT Seminar Photo 4" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+4'">
+                    <img src="event4_4.jpeg" alt="ICT Seminar Photo 4" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+4'">
                 </div>
             </div>
         </div>
@@ -1206,18 +1322,18 @@
             </p>
             
             <!-- ইভেন্ট ৫ এর ৪টি ছবি -->
-            <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <div class="lightbox-img-wrap">
-                    <img src="event5_1.jpeg" alt="Event Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+1'">
+                    <img src="event5_1.jpeg" alt="Event Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+1'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event5_2.jpeg" alt="Event Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+2'">
+                    <img src="event5_2.jpeg" alt="Event Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+2'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event5_3.jpeg" alt="Event Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+3'">
+                    <img src="event5_3.jpeg" alt="Event Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+3'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event5_4.jpeg" alt="Event Photo 4" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+4'">
+                    <img src="event5_4.jpeg" alt="Event Photo 4" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+4'">
                 </div>
             </div>
 
@@ -1249,15 +1365,15 @@
             </p>
             
             <!-- ৩টি ছবি -->
-            <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <div class="lightbox-img-wrap">
-                    <img src="event7_1.jpeg" alt="Judge Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+1'">
+                    <img src="event7_1.jpeg" alt="Judge Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+1'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event7_2.jpeg" alt="Judge Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+2'">
+                    <img src="event7_2.jpeg" alt="Judge Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+2'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event7_3.jpeg" alt="Judge Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+3'">
+                    <img src="event7_3.jpeg" alt="Judge Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+3'">
                 </div>
             </div>
 
@@ -1277,24 +1393,24 @@
             </p>
             
             <!-- ৬টি ছবি -->
-            <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <div class="lightbox-img-wrap">
-                    <img src="event8_1.jpeg" alt="DTCA Session Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+1'">
+                    <img src="event8_1.jpeg" alt="DTCA Session Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+1'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event8_2.jpeg" alt="DTCA Session Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+2'">
+                    <img src="event8_2.jpeg" alt="DTCA Session Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+2'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event8_3.jpeg" alt="DTCA Session Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+3'">
+                    <img src="event8_3.jpeg" alt="DTCA Session Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+3'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event8_4.jpeg" alt="DTCA Session Photo 4" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+4'">
+                    <img src="event8_4.jpeg" alt="DTCA Session Photo 4" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+4'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event8_5.jpeg" alt="DTCA Session Photo 5" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+5'">
+                    <img src="event8_5.jpeg" alt="DTCA Session Photo 5" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+5'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event8_6.jpeg" alt="DTCA Session Photo 6" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo+6'">
+                    <img src="event8_6.jpeg" alt="DTCA Session Photo 6" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+6'">
                 </div>
             </div>
 
