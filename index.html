@@ -10,28 +10,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables (Dark Mode Default) */
+        /* NEW COLOR PALETTE & VARIABLES */
         :root {
-            --bg-dark: #09090b;
-            --bg-gradient: radial-gradient(circle at 30% 50%, #1e3a5f 0%, #09090b 50%);
-            --primary-accent: #6c63ff;
-            --primary-hover: #5a52e0;
-            --text-main: #ffffff;
-            --text-muted: #a1a1aa;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            /* Base Colors from your image */
+            --color-brown: #3B2418;
+            --color-cream: #F2E8DA;
+            --color-babyblue: #BEC5FF;
+
+            /* Dark Mode Setup (Brown Background, Cream Text, Baby Blue Accents) */
+            --bg-dark: var(--color-brown);
+            --bg-gradient: radial-gradient(circle at 30% 50%, #4e2e1d 0%, var(--color-brown) 60%);
+            --primary-accent: var(--color-babyblue);
+            --primary-hover: #a5adf5;
+            --accent-text: var(--color-babyblue);
+            --text-main: var(--color-cream);
+            --text-muted: rgba(242, 232, 218, 0.7);
+            
+            /* Baby Blue Glassmorphism Boxes */
+            --glass-bg: rgba(190, 197, 255, 0.08);
+            --glass-border: rgba(190, 197, 255, 0.3);
+            --box-shadow: 0 10px 30px rgba(190, 197, 255, 0.1);
+            
+            --btn-text: var(--color-brown);
+            
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
         }
 
-        /* Light Mode Variables */
+        /* Light Mode Variables (Cream Background, Brown Text, Baby Blue Accents) */
         body.light-mode {
-            --bg-dark: #f8f9fa;
-            --bg-gradient: radial-gradient(circle at 30% 50%, #e2e8f0 0%, #f8f9fa 50%);
-            --text-main: #1a1a1a;
-            --text-muted: #555555;
-            --glass-bg: rgba(0, 0, 0, 0.03);
-            --glass-border: rgba(0, 0, 0, 0.1);
+            --bg-dark: var(--color-cream);
+            --bg-gradient: radial-gradient(circle at 30% 50%, #ffffff 0%, var(--color-cream) 60%);
+            --primary-accent: var(--color-babyblue);
+            --primary-hover: #a5adf5;
+            --accent-text: #5A66E0; /* Darker Baby Blue for readability on Cream */
+            --text-main: var(--color-brown);
+            --text-muted: #6b5649;
+            
+            /* Baby Blue Glassmorphism Boxes for Light Mode */
+            --glass-bg: rgba(190, 197, 255, 0.15);
+            --glass-border: rgba(190, 197, 255, 0.5);
+            --box-shadow: 0 10px 30px rgba(190, 197, 255, 0.2);
+            
+            --btn-text: var(--color-brown);
+        }
+
+        /* Custom Premium Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-accent);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-hover);
         }
 
         * {
@@ -78,7 +114,6 @@
             align-items: center;
         }
 
-        /* Logo Size Adjusted */
         .logo {
             font-family: var(--font-heading);
             font-size: 1.3rem; 
@@ -106,7 +141,7 @@
         }
 
         .nav-links li a:hover {
-            color: var(--primary-accent);
+            color: var(--accent-text);
         }
 
         .nav-links li a::after {
@@ -162,26 +197,26 @@
         }
 
         .social-icons a:hover {
-            color: var(--primary-accent);
+            color: var(--accent-text);
         }
 
         .btn-hire-nav {
             background-color: var(--primary-accent);
-            color: #fff !important;
+            color: var(--btn-text) !important;
             padding: 10px 22px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
             transition: all 0.3s;
-            box-shadow: 0 0 15px rgba(108, 99, 255, 0.4);
+            box-shadow: 0 0 15px rgba(190, 197, 255, 0.3);
             white-space: nowrap;
         }
 
         .btn-hire-nav:hover {
             background-color: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(108, 99, 255, 0.6);
+            box-shadow: 0 0 25px rgba(190, 197, 255, 0.5);
         }
 
         .mobile-menu-btn {
@@ -221,7 +256,7 @@
             border: 1px solid var(--glass-border);
             border-radius: 30px;
             padding: 15px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), 0 0 30px rgba(108, 99, 255, 0.1);
+            box-shadow: var(--box-shadow);
             backdrop-filter: blur(10px);
             position: relative;
             transition: transform 0.4s ease;
@@ -274,7 +309,7 @@
 
         .btn-primary {
             background-color: var(--primary-accent);
-            color: #fff;
+            color: var(--btn-text);
             padding: 14px 30px;
             border-radius: 30px;
             text-decoration: none;
@@ -282,13 +317,13 @@
             font-size: 0.95rem;
             transition: all 0.3s;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(190, 197, 255, 0.2);
         }
 
         .btn-primary:hover {
             background-color: var(--primary-hover);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.5);
+            box-shadow: 0 8px 25px rgba(190, 197, 255, 0.4);
         }
 
         .btn-secondary {
@@ -307,7 +342,7 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(108, 99, 255, 0.1);
+            background: rgba(190, 197, 255, 0.15);
             border-color: var(--primary-accent);
             transform: translateY(-3px);
         }
@@ -326,7 +361,7 @@
         }
 
         .section-title span {
-            color: var(--primary-accent);
+            color: var(--accent-text);
         }
 
         /* CARDS & GRIDS */
@@ -342,19 +377,19 @@
         .card:hover {
             transform: translateY(-5px);
             border-color: var(--primary-accent);
-            box-shadow: 0 10px 30px rgba(108, 99, 255, 0.1);
+            box-shadow: var(--box-shadow);
         }
 
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
         .card-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 5px; color: var(--text-main); }
-        .card-subtitle { color: var(--primary-accent); font-size: 0.95rem; margin-bottom: 15px; font-weight: 500; }
+        .card-subtitle { color: var(--accent-text); font-size: 0.95rem; margin-bottom: 15px; font-weight: 500; }
         .card-date { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px; display: block; }
         .card p, .card ul { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
         .card ul { margin-left: 20px; margin-top: 10px; }
 
-        /* 🌟 নতুন ইভেন্ট কার্ড ডিজাইন (ছোট ছবি + বড় লেখা) */
+        /* EVENT CARD DESIGN */
         .event-card-layout {
             display: flex;
             gap: 20px;
@@ -363,7 +398,7 @@
 
         .event-thumbnail {
             flex-shrink: 0;
-            width: 90px; /* ৯০x৯০ করা হয়েছে */
+            width: 90px;
             height: 90px;
             border-radius: 10px;
             overflow: hidden;
@@ -391,12 +426,12 @@
         /* Skills */
         .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
         .skill-tag {
-            background: rgba(108, 99, 255, 0.1);
-            color: var(--primary-accent);
+            background: rgba(190, 197, 255, 0.15);
+            color: var(--text-main);
             padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.9rem;
-            border: 1px solid rgba(108, 99, 255, 0.2);
+            border: 1px solid rgba(190, 197, 255, 0.3);
         }
 
         /* Certificates */
@@ -451,7 +486,7 @@
             position: absolute;
             bottom: 15px; right: 20px;
             font-size: 0.75rem;
-            color: var(--primary-accent);
+            color: var(--accent-text);
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -498,8 +533,8 @@
         }
 
         .contact-detail svg {
-            color: var(--primary-accent);
-            background: rgba(108, 99, 255, 0.1);
+            color: var(--accent-text);
+            background: rgba(190, 197, 255, 0.15);
             padding: 10px;
             border-radius: 50%;
             width: 45px;
@@ -541,7 +576,7 @@
         .form-group input:focus, 
         .form-group textarea:focus {
             border-color: var(--primary-accent);
-            background: rgba(108, 99, 255, 0.05);
+            background: rgba(190, 197, 255, 0.1);
         }
 
         .form-group textarea {
@@ -551,7 +586,7 @@
 
         .btn-submit {
             background-color: var(--primary-accent);
-            color: #fff;
+            color: var(--btn-text);
             padding: 15px;
             border-radius: 10px;
             border: none;
@@ -565,7 +600,7 @@
         .btn-submit:hover {
             background-color: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(190, 197, 255, 0.4);
         }
 
         /* MODALS */
@@ -610,7 +645,7 @@
         }
         .close-btn:hover { color: var(--text-main); }
 
-        .lightbox-title { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 10px; color: var(--primary-accent); }
+        .lightbox-title { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 10px; color: var(--accent-text); }
         .lightbox-date { color: var(--text-muted); margin-bottom: 20px; display: block; }
         .lightbox-desc { color: var(--text-muted); line-height: 1.7; margin-bottom: 25px; font-size: 1rem; }
         
@@ -665,7 +700,6 @@
             .contact-wrapper { grid-template-columns: 1fr; padding: 30px; }
         }
 
-        /* 🌟 মোবাইলের জন্য একদম নিখুঁত স্পেসিং */
         @media (max-width: 480px) {
             nav .container {
                 padding: 0 15px; 
@@ -805,13 +839,13 @@
                     <h3 class="card-title">B.Sc. in Computer Science & Engineering</h3>
                     <span class="card-subtitle">Manarat International University</span>
                     <span class="card-date">2023 - Present | Expected: June 2027</span>
-                    <p>CGPA: <strong style="color: var(--primary-accent);">3.56</strong> out of 4.00</p>
+                    <p>CGPA: <strong style="color: var(--accent-text);">3.56</strong> out of 4.00</p>
                 </div>
                 <div class="card clickable-card" onclick="showModal('edu2')">
                     <h3 class="card-title">Higher Secondary Certificate in Science</h3>
                     <span class="card-subtitle">Shashidal Al-Haj Mohammad Abu Taher College</span>
                     <span class="card-date">June 2019 - Dec 2021</span>
-                    <p>GPA: <strong style="color: var(--primary-accent);">5.00</strong> out of 5.00</p>
+                    <p>GPA: <strong style="color: var(--accent-text);">5.00</strong> out of 5.00</p>
                 </div>
             </div>
         </div>
@@ -825,7 +859,7 @@
             <div class="grid-3" style="margin-bottom: 30px;">
                 
                 <div class="card">
-                    <h3 class="card-title" style="color: var(--primary-accent); font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                    <h3 class="card-title" style="color: var(--accent-text); font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
                         Programming & Tools
                     </h3>
@@ -840,7 +874,7 @@
                 </div>
 
                 <div class="card">
-                    <h3 class="card-title" style="color: var(--primary-accent); font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                    <h3 class="card-title" style="color: var(--accent-text); font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zM7 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zM7 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
                         Web & Database
                     </h3>
@@ -852,7 +886,7 @@
                 </div>
 
                 <div class="card">
-                    <h3 class="card-title" style="color: var(--primary-accent); font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                    <h3 class="card-title" style="color: var(--accent-text); font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M21 11.18V9.72c0-.8-1.04-1.33-1.67-.86l-1.29.96a2.01 2.01 0 0 0-1.03-.94l-1.08-4.32c-.16-.64-.74-1.08-1.4-1.08h-3.06c-.66 0-1.24.44-1.4 1.08L9.99 8.88c-.4.16-.75.45-1.01.81L7.67 8.86c-.63-.47-1.67.06-1.67.86v1.46c0 .33.17.63.45.8l1.26.76c-.05.25-.08.51-.08.78s.03.53.08.78l-1.26.76c-.28.17-.45.47-.45.8v1.46c0 .8 1.04 1.33 1.67.86l1.31-.98c.26.36.61.65 1.01.81l1.08 4.32c.16.64.74 1.08 1.4 1.08h3.06c.66 0 1.24-.44 1.4-1.08l1.08-4.32c.4-.16.75-.45 1.01-.81l1.31.98c.63.47 1.67-.06 1.67-.86v-1.46c0-.33-.17-.63-.45-.8l-1.26-.76c.05-.25.08-.51.08-.78s-.03-.53-.08-.78l1.26-.76c.28-.17.45-.47.45-.8zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
                         AI & Machine Learning
                     </h3>
@@ -869,18 +903,18 @@
 
             <div class="card" style="padding: 25px; border-left: 4px solid var(--primary-accent); background: var(--glass-bg);">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                    <svg width="22" height="22" fill="var(--primary-accent)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    <svg width="22" height="22" fill="var(--accent-text)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                     <h3 class="card-title" style="margin: 0; font-size: 1.1rem;">Languages</h3>
                 </div>
                 <div class="skills-list">
                     <span class="skill-tag" style="background: var(--glass-bg); color: var(--text-main); border-color: var(--glass-border);">
-                        <strong style="color: var(--primary-accent);">Bangla</strong> — Native
+                        <strong style="color: var(--accent-text);">Bangla</strong> — Native
                     </span>
                     <span class="skill-tag" style="background: var(--glass-bg); color: var(--text-main); border-color: var(--glass-border);">
-                        <strong style="color: var(--primary-accent);">English</strong> — Professional Working Proficiency
+                        <strong style="color: var(--accent-text);">English</strong> — Professional Working Proficiency
                     </span>
                     <span class="skill-tag" style="background: var(--glass-bg); color: var(--text-main); border-color: var(--glass-border);">
-                        <strong style="color: var(--primary-accent);">Japanese</strong> — Basic Proficiency (JLPT N5)
+                        <strong style="color: var(--accent-text);">Japanese</strong> — Basic Proficiency (JLPT N5)
                     </span>
                 </div>
             </div>
