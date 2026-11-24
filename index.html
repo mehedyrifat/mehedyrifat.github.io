@@ -10,49 +10,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* NEW COLOR PALETTE & VARIABLES */
+        /* NEW THEME: SAGE GREEN & CHARCOAL */
         :root {
-            /* Base Colors from your image */
-            --color-brown: #3B2418;
-            --color-cream: #F2E8DA;
-            --color-babyblue: #BEC5FF;
+            /* Base Colors */
+            --color-charcoal: #1A1D1A;
+            --color-offwhite: #F4F4F0;
+            --color-sage: #A3B19B;
 
-            /* Dark Mode Setup (Brown Background, Cream Text, Baby Blue Accents) */
-            --bg-dark: var(--color-brown);
-            --bg-gradient: radial-gradient(circle at 30% 50%, #4e2e1d 0%, var(--color-brown) 60%);
-            --primary-accent: var(--color-babyblue);
-            --primary-hover: #a5adf5;
-            --accent-text: var(--color-babyblue);
-            --text-main: var(--color-cream);
-            --text-muted: rgba(242, 232, 218, 0.7);
+            /* Dark Mode Setup (Default) */
+            --bg-dark: var(--color-charcoal);
+            --bg-gradient: radial-gradient(circle at 30% 50%, #262b26 0%, var(--color-charcoal) 60%);
+            --primary-accent: var(--color-sage);
+            --primary-hover: #8fa386;
+            --accent-text: var(--color-sage);
+            --text-main: var(--color-offwhite);
+            --text-muted: rgba(244, 244, 240, 0.65);
             
-            /* Baby Blue Glassmorphism Boxes */
-            --glass-bg: rgba(190, 197, 255, 0.08);
-            --glass-border: rgba(190, 197, 255, 0.3);
-            --box-shadow: 0 10px 30px rgba(190, 197, 255, 0.1);
+            /* Sage Green Glassmorphism Boxes */
+            --glass-bg: rgba(163, 177, 155, 0.06);
+            --glass-border: rgba(163, 177, 155, 0.25);
+            --box-shadow: 0 10px 30px rgba(163, 177, 155, 0.1);
             
-            --btn-text: var(--color-brown);
+            --btn-text: var(--color-charcoal);
             
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
         }
 
-        /* Light Mode Variables (Cream Background, Brown Text, Baby Blue Accents) */
+        /* Light Mode Variables */
         body.light-mode {
-            --bg-dark: var(--color-cream);
-            --bg-gradient: radial-gradient(circle at 30% 50%, #ffffff 0%, var(--color-cream) 60%);
-            --primary-accent: var(--color-babyblue);
-            --primary-hover: #a5adf5;
-            --accent-text: #5A66E0; /* Darker Baby Blue for readability on Cream */
-            --text-main: var(--color-brown);
-            --text-muted: #6b5649;
+            --bg-dark: var(--color-offwhite);
+            --bg-gradient: radial-gradient(circle at 30% 50%, #ffffff 0%, var(--color-offwhite) 60%);
+            --primary-accent: var(--color-sage);
+            --primary-hover: #8fa386;
+            --accent-text: #6B7A63; /* Darker Sage for readability on Off-white */
+            --text-main: var(--color-charcoal);
+            --text-muted: #555A55;
             
-            /* Baby Blue Glassmorphism Boxes for Light Mode */
-            --glass-bg: rgba(190, 197, 255, 0.15);
-            --glass-border: rgba(190, 197, 255, 0.5);
-            --box-shadow: 0 10px 30px rgba(190, 197, 255, 0.2);
+            /* Sage Green Glassmorphism for Light Mode */
+            --glass-bg: rgba(163, 177, 155, 0.15);
+            --glass-border: rgba(163, 177, 155, 0.5);
+            --box-shadow: 0 10px 30px rgba(163, 177, 155, 0.2);
             
-            --btn-text: var(--color-brown);
+            --btn-text: var(--color-charcoal);
         }
 
         /* Custom Premium Scrollbar */
@@ -209,14 +209,14 @@
             font-weight: 600;
             font-size: 0.9rem;
             transition: all 0.3s;
-            box-shadow: 0 0 15px rgba(190, 197, 255, 0.3);
+            box-shadow: 0 0 15px rgba(163, 177, 155, 0.3);
             white-space: nowrap;
         }
 
         .btn-hire-nav:hover {
             background-color: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(190, 197, 255, 0.5);
+            box-shadow: 0 0 25px rgba(163, 177, 155, 0.5);
         }
 
         .mobile-menu-btn {
@@ -317,13 +317,13 @@
             font-size: 0.95rem;
             transition: all 0.3s;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(190, 197, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(163, 177, 155, 0.2);
         }
 
         .btn-primary:hover {
             background-color: var(--primary-hover);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(190, 197, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(163, 177, 155, 0.4);
         }
 
         .btn-secondary {
@@ -342,7 +342,7 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(190, 197, 255, 0.15);
+            background: rgba(163, 177, 155, 0.15);
             border-color: var(--primary-accent);
             transform: translateY(-3px);
         }
@@ -426,12 +426,12 @@
         /* Skills */
         .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
         .skill-tag {
-            background: rgba(190, 197, 255, 0.15);
+            background: rgba(163, 177, 155, 0.15);
             color: var(--text-main);
             padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.9rem;
-            border: 1px solid rgba(190, 197, 255, 0.3);
+            border: 1px solid rgba(163, 177, 155, 0.3);
         }
 
         /* Certificates */
@@ -534,7 +534,7 @@
 
         .contact-detail svg {
             color: var(--accent-text);
-            background: rgba(190, 197, 255, 0.15);
+            background: rgba(163, 177, 155, 0.15);
             padding: 10px;
             border-radius: 50%;
             width: 45px;
@@ -576,7 +576,7 @@
         .form-group input:focus, 
         .form-group textarea:focus {
             border-color: var(--primary-accent);
-            background: rgba(190, 197, 255, 0.1);
+            background: rgba(163, 177, 155, 0.1);
         }
 
         .form-group textarea {
@@ -600,7 +600,7 @@
         .btn-submit:hover {
             background-color: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(190, 197, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(163, 177, 155, 0.4);
         }
 
         /* MODALS */
@@ -932,7 +932,7 @@
                 <div class="card clickable-card" onclick="showModal('event1')">
                     <div class="event-card-layout">
                         <div class="event-thumbnail">
-                            <img src="event1_1.jpeg" alt="President" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                            <img src="event1_1.jpeg" alt="President" onerror="this.src='https://via.placeholder.com/100x100/1A1D1A/A3B19B?text=Event'">
                         </div>
                         <div class="event-details">
                             <h3 class="card-title">President, MIU CSE Club</h3>
@@ -946,7 +946,7 @@
                 <div class="card clickable-card" onclick="showModal('event2')">
                     <div class="event-card-layout">
                         <div class="event-thumbnail">
-                            <img src="event2_1.jpeg" alt="AI Summit" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                            <img src="event2_1.jpeg" alt="AI Summit" onerror="this.src='https://via.placeholder.com/100x100/1A1D1A/A3B19B?text=Event'">
                         </div>
                         <div class="event-details">
                             <h3 class="card-title">Lead Organizer, AI Summit 2026</h3>
@@ -960,7 +960,7 @@
                 <div class="card clickable-card" onclick="showModal('event3')">
                     <div class="event-card-layout">
                         <div class="event-thumbnail">
-                            <img src="event3.jpeg" alt="Silicon River" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                            <img src="event3.jpeg" alt="Silicon River" onerror="this.src='https://via.placeholder.com/100x100/1A1D1A/A3B19B?text=Event'">
                         </div>
                         <div class="event-details">
                             <h3 class="card-title">Lead, Silicon River Student Branch</h3>
@@ -974,7 +974,7 @@
                 <div class="card clickable-card" onclick="showModal('event4')">
                     <div class="event-card-layout">
                         <div class="event-thumbnail">
-                            <img src="event4_1.jpeg" alt="ICT Seminar" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                            <img src="event4_1.jpeg" alt="ICT Seminar" onerror="this.src='https://via.placeholder.com/100x100/1A1D1A/A3B19B?text=Event'">
                         </div>
                         <div class="event-details">
                             <h3 class="card-title">Lead Organizer, ICT-Based Seminar</h3>
@@ -988,7 +988,7 @@
                 <div class="card clickable-card" onclick="showModal('event5')">
                     <div class="event-card-layout">
                         <div class="event-thumbnail">
-                            <img src="event5_1.jpeg" alt="BEAR Patron" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                            <img src="event5_1.jpeg" alt="BEAR Patron" onerror="this.src='https://via.placeholder.com/100x100/1A1D1A/A3B19B?text=Event'">
                         </div>
                         <div class="event-details">
                             <h3 class="card-title">BEAR Patron (Campus Ambassador)</h3>
@@ -1002,7 +1002,7 @@
                 <div class="card clickable-card" onclick="showModal('event6')">
                     <div class="event-card-layout">
                         <div class="event-thumbnail">
-                            <img src="event6_1.jpeg" alt="ICAI" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                            <img src="event6_1.jpeg" alt="ICAI" onerror="this.src='https://via.placeholder.com/100x100/1A1D1A/A3B19B?text=Event'">
                         </div>
                         <div class="event-details">
                             <h3 class="card-title">Campus Ambassador, ICAI</h3>
@@ -1016,7 +1016,7 @@
                 <div class="card clickable-card" onclick="showModal('event7')">
                     <div class="event-card-layout">
                         <div class="event-thumbnail">
-                            <img src="event7_1.jpeg" alt="Judge" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                            <img src="event7_1.jpeg" alt="Judge" onerror="this.src='https://via.placeholder.com/100x100/1A1D1A/A3B19B?text=Event'">
                         </div>
                         <div class="event-details">
                             <h3 class="card-title">Junior Project Judge & CTF Volunteer</h3>
@@ -1030,7 +1030,7 @@
                 <div class="card clickable-card" onclick="showModal('event8')">
                     <div class="event-card-layout">
                         <div class="event-thumbnail">
-                            <img src="event8_1.jpeg" alt="DTCA" onerror="this.src='https://via.placeholder.com/100x100/111113/6c63ff?text=Event'">
+                            <img src="event8_1.jpeg" alt="DTCA" onerror="this.src='https://via.placeholder.com/100x100/1A1D1A/A3B19B?text=Event'">
                         </div>
                         <div class="event-details">
                             <h3 class="card-title">Delegate, DTCA Special Training</h3>
@@ -1107,25 +1107,25 @@
             <div class="grid-certs">
                 
                 <div class="card cert-card-new" onclick="showCertModal('cert1.jpg')">
-                    <img src="cert1.jpg" alt="BEAR Patron" class="cert-img" onerror="this.src='https://via.placeholder.com/150x80/111113/6c63ff?text=Certificate'">
+                    <img src="cert1.jpg" alt="BEAR Patron" class="cert-img" onerror="this.src='https://via.placeholder.com/150x80/1A1D1A/A3B19B?text=Certificate'">
                     <h4 class="cert-title">BEAR Patron Certificate</h4>
                     <p class="cert-details">BEAR Patron (Campus Ambassador) - 2026</p>
                 </div>
 
                 <div class="card cert-card-new" onclick="showCertModal('cert2.png')">
-                    <img src="cert2.png" alt="AI Summit Organizer" class="cert-img" onerror="this.src='https://via.placeholder.com/150x80/111113/6c63ff?text=Certificate'">
+                    <img src="cert2.png" alt="AI Summit Organizer" class="cert-img" onerror="this.src='https://via.placeholder.com/150x80/1A1D1A/A3B19B?text=Certificate'">
                     <h4 class="cert-title">AI Summit Organizer Certificate</h4>
                     <p class="cert-details">Organizer, AI Summit 2026</p>
                 </div>
 
                 <div class="card cert-card-new" onclick="showCertModal('cert3.jpg')">
-                    <img src="cert3.jpg" alt="Judge Certificate" class="cert-img" onerror="this.src='https://via.placeholder.com/150x80/111113/6c63ff?text=Certificate'">
+                    <img src="cert3.jpg" alt="Judge Certificate" class="cert-img" onerror="this.src='https://via.placeholder.com/150x80/1A1D1A/A3B19B?text=Certificate'">
                     <h4 class="cert-title">Judge Certificate</h4>
                     <p class="cert-details">Judge, Al-Khwarizmi Science Fest 2025</p>
                 </div>
 
                 <div class="card cert-card-new" onclick="showCertModal('cert4.jpg')">
-                    <img src="cert4.jpg" alt="CTF Volunteer" class="cert-img" onerror="this.src='https://via.placeholder.com/150x80/111113/6c63ff?text=Certificate'">
+                    <img src="cert4.jpg" alt="CTF Volunteer" class="cert-img" onerror="this.src='https://via.placeholder.com/150x80/1A1D1A/A3B19B?text=Certificate'">
                     <h4 class="cert-title">CTF Volunteer Certificate</h4>
                     <p class="cert-details">CTF Volunteer, Al-Khwarizmi Science Fest 2025</p>
                 </div>
@@ -1271,10 +1271,10 @@
             <!-- ২টি ছবির গ্রিড -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <div class="lightbox-img-wrap">
-                    <img src="event1_1.jpeg" alt="President Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+1'">
+                    <img src="event1_1.jpeg" alt="President Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+1'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event1_2.jpeg" alt="President Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+2'">
+                    <img src="event1_2.jpeg" alt="President Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+2'">
                 </div>
             </div>
 
@@ -1292,17 +1292,17 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <!-- ১ম ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event2_1.jpeg" alt="AI Summit Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+1'">
+                    <img src="event2_1.jpeg" alt="AI Summit Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+1'">
                 </div>
                 
                 <!-- ২য় ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event2_2.jpeg" alt="AI Summit Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+2'">
+                    <img src="event2_2.jpeg" alt="AI Summit Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+2'">
                 </div>
                 
                 <!-- ৩য় ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event2_3.jpeg" alt="AI Summit Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+3'">
+                    <img src="event2_3.jpeg" alt="AI Summit Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+3'">
                 </div>
             </div>
         </div>
@@ -1317,7 +1317,7 @@
                 Leading the initiation and establishment of the Silicon River Student Branch at Manarat International University. Coordinating student outreach, member engagement, and campus activities.
             </p>
             <div class="lightbox-img-wrap">
-                <img src="event3.jpeg" alt="Silicon River Event" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo'">
+                <img src="event3.jpeg" alt="Silicon River Event" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/1A1D1A/A3B19B?text=Event+Photo'">
             </div>
         </div>
     </div>
@@ -1333,22 +1333,22 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <!-- ১ম ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event4_1.jpeg" alt="ICT Seminar Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+1'">
+                    <img src="event4_1.jpeg" alt="ICT Seminar Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+1'">
                 </div>
                 
                 <!-- ২য় ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event4_2.jpeg" alt="ICT Seminar Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+2'">
+                    <img src="event4_2.jpeg" alt="ICT Seminar Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+2'">
                 </div>
                 
                 <!-- ৩য় ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event4_3.jpeg" alt="ICT Seminar Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+3'">
+                    <img src="event4_3.jpeg" alt="ICT Seminar Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+3'">
                 </div>
 
                 <!-- ৪র্থ ছবি -->
                 <div class="lightbox-img-wrap">
-                    <img src="event4_4.jpeg" alt="ICT Seminar Photo 4" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+4'">
+                    <img src="event4_4.jpeg" alt="ICT Seminar Photo 4" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+4'">
                 </div>
             </div>
         </div>
@@ -1366,16 +1366,16 @@
             <!-- ইভেন্ট ৫ এর ৪টি ছবি -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <div class="lightbox-img-wrap">
-                    <img src="event5_1.jpeg" alt="Event Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+1'">
+                    <img src="event5_1.jpeg" alt="Event Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+1'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event5_2.jpeg" alt="Event Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+2'">
+                    <img src="event5_2.jpeg" alt="Event Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+2'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event5_3.jpeg" alt="Event Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+3'">
+                    <img src="event5_3.jpeg" alt="Event Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+3'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event5_4.jpeg" alt="Event Photo 4" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+4'">
+                    <img src="event5_4.jpeg" alt="Event Photo 4" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+4'">
                 </div>
             </div>
 
@@ -1391,7 +1391,7 @@
                 Promoted the International Congress on Artificial Intelligence (ICAI) among university students and encouraged participation in AI-focused activities.
             </p>
             <div class="lightbox-img-wrap">
-                <img src="event6_1.jpeg" alt="ICAI Event" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Event+Photo'">
+                <img src="event6_1.jpeg" alt="ICAI Event" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/1A1D1A/A3B19B?text=Event+Photo'">
             </div>
         </div>
     </div>
@@ -1409,13 +1409,13 @@
             <!-- ৩টি ছবি -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <div class="lightbox-img-wrap">
-                    <img src="event7_1.jpeg" alt="Judge Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+1'">
+                    <img src="event7_1.jpeg" alt="Judge Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+1'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event7_2.jpeg" alt="Judge Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+2'">
+                    <img src="event7_2.jpeg" alt="Judge Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+2'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event7_3.jpeg" alt="Judge Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+3'">
+                    <img src="event7_3.jpeg" alt="Judge Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+3'">
                 </div>
             </div>
 
@@ -1437,22 +1437,22 @@
             <!-- ৬টি ছবি -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <div class="lightbox-img-wrap">
-                    <img src="event8_1.jpeg" alt="DTCA Session Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+1'">
+                    <img src="event8_1.jpeg" alt="DTCA Session Photo 1" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+1'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event8_2.jpeg" alt="DTCA Session Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+2'">
+                    <img src="event8_2.jpeg" alt="DTCA Session Photo 2" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+2'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event8_3.jpeg" alt="DTCA Session Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+3'">
+                    <img src="event8_3.jpeg" alt="DTCA Session Photo 3" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+3'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event8_4.jpeg" alt="DTCA Session Photo 4" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+4'">
+                    <img src="event8_4.jpeg" alt="DTCA Session Photo 4" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+4'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event8_5.jpeg" alt="DTCA Session Photo 5" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+5'">
+                    <img src="event8_5.jpeg" alt="DTCA Session Photo 5" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+5'">
                 </div>
                 <div class="lightbox-img-wrap">
-                    <img src="event8_6.jpeg" alt="DTCA Session Photo 6" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/111113/6c63ff?text=Event+Photo+6'">
+                    <img src="event8_6.jpeg" alt="DTCA Session Photo 6" class="lightbox-img" onerror="this.src='https://via.placeholder.com/400x300/1A1D1A/A3B19B?text=Event+Photo+6'">
                 </div>
             </div>
 
@@ -1469,7 +1469,7 @@
                 Developing a multimodal framework to detect out-of-context and doctored news media using Vision Transformers and retrieval-augmented evidence verification.
             </p>
             <div class="lightbox-img-wrap">
-                <img src="res1.jpg" alt="Research" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Research+Image'">
+                <img src="res1.jpg" alt="Research" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/1A1D1A/A3B19B?text=Research+Image'">
             </div>
         </div>
     </div>
@@ -1483,7 +1483,7 @@
                 Measuring the performance gap of Bangla NER models from standard Bangla to five regional dialects using leakage-controlled splits, and comparing adaptation strategies with CRF, BiLSTM-CRF, BanglaBERT, XLM-R, and mBERT. (Team project)
             </p>
             <div class="lightbox-img-wrap">
-                <img src="res2.jpg" alt="Research" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/111113/6c63ff?text=Research+Image'">
+                <img src="res2.jpg" alt="Research" class="lightbox-img" onerror="this.src='https://via.placeholder.com/800x400/1A1D1A/A3B19B?text=Research+Image'">
             </div>
         </div>
     </div>
